@@ -107,14 +107,14 @@
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2018-08-06T17:30:35.000Z" itemprop="datePublished">Aug 6 2018</time>
+            <time datetime="2018-08-06T17:40:11.000Z" itemprop="datePublished">Aug 6 2018</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            7 minutes read (About 1032 words)
+            6 minutes read (About 970 words)
         </span>
         
     </div>
@@ -171,7 +171,6 @@
 <blockquote>
 <p>“ <em>I think transfer learning is the key to general intelligence. And I think the key to doing transfer learning will be the acquisition of conceptual knowledge that is abstracted away from perceptual details of where you learned it from.</em> “ — Demis Hassabis</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import tensorflow_hub as hub</span><br><span class="line"></span><br><span class="line">with tf.Graph().as_default():</span><br><span class="line">  module_url = &quot;https://tfhub.dev/google/nnlm-en-dim128-with-normalization/1&quot;</span><br><span class="line">  embed = hub.Module(module_url)</span><br><span class="line">  embeddings = embed([&quot;A long sentence.&quot;, &quot;single-word&quot;,</span><br><span class="line">                      &quot;http://example.com&quot;])</span><br><span class="line"></span><br><span class="line">  with tf.Session() as sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line">    sess.run(tf.tables_initializer())</span><br><span class="line"></span><br><span class="line">    print(sess.run(embeddings))</span><br></pre></td></tr></table></figure>
 <ul>
 <li><a href="https://www.tensorflow.org/hub/" target="_blank" rel="noopener">TensorFlow Hub</a></li>
 <li><a href="https://medium.com/tensorflow/introducing-tensorflow-hub-a-library-for-reusable-machine-learning-modules-in-tensorflow-cdee41fa18f9" target="_blank" rel="noopener">Introducing TensorFlow Hub</a> by Josh Gordon</li>
