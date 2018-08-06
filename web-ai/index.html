@@ -107,14 +107,14 @@
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2018-08-06T17:04:37.000Z" itemprop="datePublished">Aug 6 2018</time>
+            <time datetime="2018-08-06T17:30:35.000Z" itemprop="datePublished">Aug 6 2018</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            6 minutes read (About 905 words)
+            7 minutes read (About 1032 words)
         </span>
         
     </div>
@@ -158,10 +158,20 @@
 <li><a href="https://github.com/openai/baselines" target="_blank" rel="noopener">OpenAI Baselines</a> by OpenAI</li>
 </ul>
 <h3 id="3-TensorFlow-Hub"><a href="#3-TensorFlow-Hub" class="headerlink" title="3. TensorFlow Hub"></a>3. TensorFlow Hub</h3><p><strong>Reusing Machine Learning Modules</strong></p>
+<p>TensorFlow Hub is a library for the publication, discovery, and consumption of reusable parts of machine learning models. A module is a self-contained piece of a TensorFlow graph, along with its weights and assets, that can be reused across different tasks in a process known as transfer learning. Transfer learning can:</p>
+<ul>
+<li><p>Train a model with a smaller dataset ;</p>
+</li>
+<li><p>Improve generalization: and</p>
+</li>
+<li><p>Speed up training.</p>
+</li>
+</ul>
 <p><img src="../images/TensorFlow_Hub.png" alt="“Ingredients” of a machine learning model that can be packaged and shared through TensorFlow Hub. In a sense, sharing a pre-trained model also shares the compute time and dataset used to develop the model, in addition to architecture itself" title="“Ingredients” of a machine learning model that can be packaged and shared through TensorFlow Hub"></p>
 <blockquote>
 <p>“ <em>I think transfer learning is the key to general intelligence. And I think the key to doing transfer learning will be the acquisition of conceptual knowledge that is abstracted away from perceptual details of where you learned it from.</em> “ — Demis Hassabis</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import tensorflow_hub as hub</span><br><span class="line"></span><br><span class="line">with tf.Graph().as_default():</span><br><span class="line">  module_url = &quot;https://tfhub.dev/google/nnlm-en-dim128-with-normalization/1&quot;</span><br><span class="line">  embed = hub.Module(module_url)</span><br><span class="line">  embeddings = embed([&quot;A long sentence.&quot;, &quot;single-word&quot;,</span><br><span class="line">                      &quot;http://example.com&quot;])</span><br><span class="line"></span><br><span class="line">  with tf.Session() as sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line">    sess.run(tf.tables_initializer())</span><br><span class="line"></span><br><span class="line">    print(sess.run(embeddings))</span><br></pre></td></tr></table></figure>
 <ul>
 <li><a href="https://www.tensorflow.org/hub/" target="_blank" rel="noopener">TensorFlow Hub</a></li>
 <li><a href="https://medium.com/tensorflow/introducing-tensorflow-hub-a-library-for-reusable-machine-learning-modules-in-tensorflow-cdee41fa18f9" target="_blank" rel="noopener">Introducing TensorFlow Hub</a> by Josh Gordon</li>
